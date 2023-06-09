@@ -26,11 +26,12 @@
 - 升级deepflow编译镜像GCC版本到11.2.1
   - 为什么要升级？
     - 因为x86_64-linux-musl版本是gcc 11.2.1，我们需要做到统一，否则会出莫名错误。
-  ```
-  yum install centos-release-scl
-  yum install devtoolset-11-gcc*
-  source /opt/rh/devtoolset-11/enable
-  ```
+
+    ```
+    yum install centos-release-scl
+    yum install devtoolset-11-gcc*
+    source /opt/rh/devtoolset-11/enable
+    ```
 - 注意三个路径（后面编译Makefile文件里面做相应的修改）
   - BCC源文件路径（bcc-src-with-submodule.tar.gz解压后的路径）
   - x86_64-linux-musl-cross（交叉编译路径）
