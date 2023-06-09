@@ -61,11 +61,11 @@ cd libbcc-bpf
 make
 ```
 
-## libelf编译
+## libelf-musl编译
 
 
 ```bash
-cd libelf
+cd libelf-musl
 #Makefile 相关路径做调整
 make
 ```
@@ -94,7 +94,7 @@ cp /work/x86_64-linux-musl-cross/x86_64-linux-musl/lib/libc.a /usr/x86_64-linux-
 
 # 依赖的Musl版本库文件Musl
 cp /work/musl-compile/zlib-1.2.12/libz.a /usr/x86_64-linux-musl/lib64/
-cp /work/musl-compile/elf-musl/musl-libelf-github-ok/libelf/libelf.a /usr/x86_64-linux-musl/lib64/
+cp /work/musl-compile/libelf-musl/libelf.a /usr/x86_64-linux-musl/lib64/
 cp /work/musl-compile/libbcc_src/libbcc.a /usr/x86_64-linux-musl/lib64/
 cp /work/musl-compile/libbcc-bpf/libbcc_bpf.a /usr/x86_64-linux-musl/lib64/
 
