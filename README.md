@@ -61,11 +61,11 @@ cd libbcc-bpf
 make
 ```
 
-## libelf-musl编译
+## libelf编译
 
 
 ```bash
-cd libelf-musl
+cd libelf
 #Makefile 相关路径做调整
 make
 ```

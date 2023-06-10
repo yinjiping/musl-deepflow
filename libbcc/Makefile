@@ -14,8 +14,6 @@ BCCDIR_SRC ?= /work/musl-bcc/bcc/src
 OBJDIR ?= .
 STATIC_OBJDIR := $(OBJDIR)/bcc-static.dir
 
-#        usdt/usdt.cc.o
-#        usdt/usdt_args.cc.o
 # table_storage.cc.o 
 # bcc_debug.cc.o
 # bpf_module_rw_engine.cc.o
@@ -27,7 +25,9 @@ OBJS := bcc_common.cc.o \
 	shared_table.cc.o \
 	bpffs_table.cc.o \
 	common.cc.o \
-	bcc_syms.cc.o
+	bcc_syms.cc.o \
+	usdt/usdt.cc.o \
+	usdt/usdt_args.cc.o
 
 OBJS_C := bcc_elf.c.o \
 	  bcc_perf_map.c.o \
@@ -41,9 +41,7 @@ build: $(STATIC_OBJS) $(STATIC_OBJS_C)
 
 $(STATIC_OBJDIR) $(STATIC_OBJDIR_C):
 	$(call msg,MKDIR,$@)
-	$(Q)mkdir -p $@
-
-#	$(Q)mkdir -p $@/usdt
+	$(Q)mkdir -p $@/usdt
 
 CFLAGS_CXX ?= -I$(BCCDIR_SRC) \
 	-I$(BCCDIR_SRC)/cc \
