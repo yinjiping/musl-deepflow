@@ -90,13 +90,13 @@ source /opt/rh/devtoolset-11/enable
 
 # 编译工具链的基本库文件更新到x86_64-linux-musl
 cp /work/x86_64-linux-musl-cross/x86_64-linux-musl/lib/libstdc++.a /usr/x86_64-linux-musl/lib64/
-cp /work/x86_64-linux-musl-cross/x86_64-linux-musl/lib/libc.a /usr/x86_64-linux-musl/lib64/
+cp /work/x86_64-linux-musl-cross/x86_64-linux-musl/lib/libc.a      /usr/x86_64-linux-musl/lib64/
 
 # 依赖的Musl版本库文件Musl
-cp /work/musl-compile/zlib-1.2.12/libz.a /usr/x86_64-linux-musl/lib64/
-cp /work/musl-compile/libelf-musl/libelf.a /usr/x86_64-linux-musl/lib64/
-cp /work/musl-compile/libbcc_src/libbcc.a /usr/x86_64-linux-musl/lib64/
-cp /work/musl-compile/libbcc-bpf/libbcc_bpf.a /usr/x86_64-linux-musl/lib64/
+cp /work/zlib/libz.a             /usr/x86_64-linux-musl/lib64/
+cp /work/libelf-musl/libelf.a    /usr/x86_64-linux-musl/lib64/
+cp /work/libbcc_src/libbcc.a     /usr/x86_64-linux-musl/lib64/
+cp /work/libbcc-bpf/libbcc_bpf.a /usr/x86_64-linux-musl/lib64/
 
 export CARGO_CFG_TARGET_ENV=musl
 CC=musl-gcc CLANG=musl-clang make
