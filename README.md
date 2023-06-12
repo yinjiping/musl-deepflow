@@ -16,8 +16,8 @@
   sudo docker run --rm  -it  --net=host --privileged --workdir /work  -v $(pwd):/work hub.deepflow.yunshan.net/public/rust-build:latest bash
   ```
 - 下载已经制作好的musl交叉编译工具链（C，C++编译，存放到编译容器里面解压以供编译使用）
-  - wget http://more.musl.cc/x86_64-linux-musl/x86_64-linux-musl-cross.tgz
-  - wget http://more.musl.cc/x86_64-linux-musl/aarch64-linux-musl-cross.tgz
+  - wget http://more.musl.cc/x86_64-linux-musl/x86_64-linux-musl-cross.tgz (x86_64 use gcc 11.2.1)
+  - wget http://more.musl.cc/10.2.1/x86_64-linux-musl/aarch64-linux-musl-cross.tgz (aarch64 use gcc 10.2.1 这里要和arm编译镜像环境对应)
   - 这部分参考
     - https://www.openwall.com/lists/musl/2019/01/21/5
     - http://musl.cc/
@@ -51,13 +51,16 @@ bcc-src-with-submodule.tar.gz 放到编译docker里面编译会依赖它。
 
 ### 编译
 
+注意：arm静态库的编译是在x86_64环境中使用aarch64交叉编译工具来编译的。
+
+
 ```bash
 cd libbcc
-#Makefile 相关路径做调整
+#Makefile 相关路径做调整, 注意arm编译时要指定aarch64的交叉编译路径
 make
 
 cd libbcc-bpf
-#Makefile 相关路径做调整
+#Makefile 相关路径做调整，注意arm编译时要指定aarch64的交叉编译路径
 make
 ```
 
@@ -66,7 +69,7 @@ make
 
 ```bash
 cd libelf
-#Makefile 相关路径做调整
+#Makefile 相关路径做调整，注意arm编译时要指定aarch64的交叉编译路径
 make
 ```
 
@@ -75,7 +78,7 @@ make
 
 ```bash
 cd zlib
-#Makefile 相关路径做调整
+#Makefile 相关路径做调整，注意arm编译时要指定aarch64的交叉编译路径
 make
 ```
 
