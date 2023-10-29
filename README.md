@@ -12,7 +12,8 @@
   进入docker编译环境：
 
   ```
-  cd deepflow/agent/src
+  cd deepflow/
+  git clone git@github.com:yinjiping/musl-deepflow.git
   sudo docker run --rm  -it  --net=host --privileged --workdir /work  -v $(pwd):/work hub.deepflow.yunshan.net/public/rust-build:latest bash
   ```
 - 下载已经制作好的musl交叉编译工具链（C，C++编译，存放到编译容器里面解压以供编译使用）
@@ -84,6 +85,12 @@ make
 
 
 ## 更新编译镜像测试
+
+```
+# If compile GNU  
+
+source /opt/rh/devtoolset-8/enable
+```
 
 ```bash
 #! /bin/bash
